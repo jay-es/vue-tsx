@@ -1,14 +1,34 @@
 <script lang="tsx">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, defineComponent, ref } from 'vue'
+import TodoList from './components/TodoList.vue'
+import { useTodoStore } from './store'
 
 export default defineComponent({
   name: 'App',
   setup() {
+    const todoStore = useTodoStore()
+    const text = ref('')
+    const count = computed(() => todoStore.count)
+    const completedCount = computed(() => todoStore.completedCount)
+    const handleClick = () => {
+      todoStore.add(text.value)
+      text.value = ''
+    }
+
     return () => (
       <>
-        <img alt="Vue logo" src="src/assets/logo.png" />
-        <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+        <div>
+          <input type="text" v-model={text.value} />
+          <button type="button" onClick={handleClick} disabled={!text.value}>
+            Add
+          </button>
+        </div>
+
+        <TodoList />
+
+        <div>
+          Total: {count.value} / Completed:{completedCount.value}
+        </div>
       </>
     )
   },
