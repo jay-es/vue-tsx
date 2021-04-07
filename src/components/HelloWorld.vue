@@ -5,15 +5,15 @@ export default defineComponent({
   props: {
     msg: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup: () => {
     const count = ref(0)
     return () => (
       <button onClick={() => count.value++}>count is: {count.value}</button>
     )
-  }
+  },
 })
 </script>
 

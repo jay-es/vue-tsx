@@ -1,10 +1,10 @@
-import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import { defineComponent } from 'vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
   },
   setup() {
     return () => (
@@ -13,5 +13,5 @@ export default defineComponent({
         <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
       </>
     )
-  }
+  },
 })

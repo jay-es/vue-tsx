@@ -11,7 +11,7 @@ export default defineComponent({
         <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
       </>
     )
-  }
+  },
 })
 </script>
 
