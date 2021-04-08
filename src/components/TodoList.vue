@@ -1,27 +1,15 @@
 <script lang="tsx">
-import { computed, defineComponent, PropType } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { useTodoStore, Todo } from '../store'
 
-const TodoItem = defineComponent({
-  name: 'TodoItem',
-  props: {
-    todo: {
-      type: Object as PropType<Todo>,
-      required: true,
-    },
-  },
-  setup: (props) => {
-    const todo = props.todo
-    return () => (
-      <li class="todo">
-        <label class={todo.done && 'done'}>
-          <input type="checkbox" v-model={todo.done} />
-          {todo.id}: {todo.text}
-        </label>
-      </li>
-    )
-  },
-})
+const TodoItem = ({ todo }: { todo: Todo }) => (
+  <li class="todo-item">
+    <label class={todo.done ? 'is-done' : ''}>
+      <input type="checkbox" v-model={todo.done} />
+      {todo.id}: {todo.text}
+    </label>
+  </li>
+)
 
 export default defineComponent({
   name: 'TodoList',
@@ -41,10 +29,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.todo {
+.todo-item {
   user-select: none;
 }
-.todo:deep() > .done {
+.todo-item:deep() > .is-done {
   text-decoration: line-through;
 }
 </style>
