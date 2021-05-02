@@ -9,7 +9,11 @@ export type Todo = {
 export const useTodoStore = defineStore({
   id: 'todo',
   state: () => ({
-    todos: [] as Todo[],
+    todos: [
+      { id: 0, text: 'aaa', done: true },
+      { id: 1, text: 'bbbbbbb', done: false },
+      { id: 2, text: 'ccc', done: false },
+    ] as Todo[],
   }),
   getters: {
     count() {
