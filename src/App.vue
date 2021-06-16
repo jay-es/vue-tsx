@@ -2,6 +2,7 @@
 import { computed, defineComponent, ref } from 'vue'
 import TodoList from './components/TodoList.vue'
 import { useTodoStore } from './store'
+import logo from './assets/logo.png'
 
 export default defineComponent({
   name: 'App',
@@ -17,6 +18,7 @@ export default defineComponent({
 
     return () => (
       <>
+        <img alt="Vue logo" src={logo} />
         <div>
           <input type="text" v-model={text.value} />
           <button type="button" onClick={handleClick} disabled={!text.value}>
